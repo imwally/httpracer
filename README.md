@@ -1,4 +1,4 @@
-# httpracer
+# httpracer [![Build Status](https://travis-ci.org/imwally/httpracer.svg?branch=master)](https://travis-ci.org/imwally/httpracer)
 
 Time HTTP connections. Particularly useful when trying to find the fastest mirror.
 
