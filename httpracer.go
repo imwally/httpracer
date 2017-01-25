@@ -75,7 +75,7 @@ func printer(r <-chan *Response) {
 
 func main() {
 	if len(os.Args) < 2 {
-		fmt.Printf("%s: need at least one argument.\n", os.Args[0])
+		fmt.Printf("%s: need at least one argument\n", os.Args[0])
 	}
 
 	responses := make(chan *Response)
