@@ -64,7 +64,7 @@ func printer(r <-chan *Response) {
 				response.Error,
 			)
 		} else {
-			fmt.Printf("%s:\t%d\t%s\n",
+			fmt.Printf("%s\t%d\t%s\n",
 				response.TimeElapsed.String(),
 				response.StatusCode,
 				response.Location,
