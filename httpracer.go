@@ -44,11 +44,11 @@ func fetcher(location string) *Response {
 
 func fetch(responses chan<- *Response, locations []string) {
 	var wg sync.WaitGroup
+	wg.Add(len(locations))
 	for _, location := range locations {
-		wg.Add(1)
 		go func(location string) {
-			defer wg.Done()
 			responses <- fetcher(location)
+			wg.Done()
 		}(location)
 	}
 
