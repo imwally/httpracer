@@ -32,14 +32,7 @@ func fetcher(location string) *Response {
 	endTime := time.Now()
 	elapsedTime := endTime.Sub(startTime)
 
-	response := &Response{
-		nil,
-		u.String(),
-		resp.StatusCode,
-		elapsedTime,
-	}
-
-	return response
+	return &Response{nil, u.String(), resp.StatusCode, elapsedTime}
 }
 
 func fetch(responses chan<- *Response, locations []string) {
