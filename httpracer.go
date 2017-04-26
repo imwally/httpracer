@@ -10,10 +10,10 @@ import (
 )
 
 type Response struct {
-	Error       error
-	Location    string
-	StatusCode  int
-	TimeElapsed time.Duration
+	Error          error
+	Location       string
+	HTTPStatusCode int
+	TimeElapsed    time.Duration
 }
 
 func fetcher(location string) *Response {
@@ -32,7 +32,7 @@ func fetcher(location string) *Response {
 	endTime := time.Now()
 	elapsedTime := endTime.Sub(startTime)
 
-	return &Response{nil, u.String(), resp.StatusCode, elapsedTime}
+	return &Response{nil, u.String(), resp.HTTPStatusCode, elapsedTime}
 }
 
 func fetch(responses chan<- *Response, locations []string) {
@@ -59,7 +59,7 @@ func printer(r <-chan *Response) {
 		} else {
 			fmt.Printf("%s\t%d\t%s\n",
 				response.TimeElapsed.String(),
-				response.StatusCode,
+				response.HTTPStatusCode,
 				response.Location,
 			)
 		}
